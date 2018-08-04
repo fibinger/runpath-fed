@@ -1,8 +1,37 @@
-<div class="my-3 p-3 bg-white rounded shadow-sm">
-  <div *ngFor="let photo of displayedPhotos" class="media text-muted pt-3">
-    <img [src]="photo.thumbnailUrl" class="mr-2 thumbnail">
-    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-      {{photo.title }}
-    </p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <input class="form-control " id="search" name="search" title="Search" [(ngModel)]="searchText"
+             placeholder="Search" (ngModelChange)="searchChanged()">
+    </div>
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+      <nav>
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" (click)="previousPage()">Previous</a>
+          </li>
+          <li class="page-item">
+            <span class="page-link">{{page + 1}}</span>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#" (click)="nextPage()">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <div *ngFor="let photo of displayedPhotos" class="media text-muted pt-3">
+        <img [src]="photo.thumbnailUrl" class="mr-2 thumbnail">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          {{photo.title }}
+        </p>
+      </div>
+    </div>
   </div>
 </div>
+
